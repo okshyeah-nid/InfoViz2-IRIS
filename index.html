@@ -4,33 +4,49 @@
     <meta charset="utf-8">
     <title>Info Viz</title>
     <style media="screen">
+      @import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
+
       body{
         max-width : 600px;
         margin : 80px auto;
-        font-family : sans-serif;
-      }
-
-      h1{
-        text-transform : uppercase;
-      }
-
-      small{
-        font-family : monospace;
-      }
-
-      .viz{
-        width : 400px;
+        font-family: 'Indie Flower', cursive;
         background-color : #f6f6f6;
+      }
+
+      .heading1{
+        font-size: 80px;
+        margin-bottom: -20px;
+      }
+
+      .heading2{
+        font-size: 40px;
+        margin-bottom: -20px;
+        margin-top: 160px;
+      }
+
+      .viz1{
+        width : 800px;
+        margin-top: -160px;
+        margin-bottom: -160px;
+      }
+
+      .viz2{
+        width : 800px;
+        margin-top: 40px;
+        margin-bottom: -160px;
       }
     </style>
   </head>
   <body>
     <main>
-      <h1>Iris Vizualisation</h1>
-      <p>By Akshay Rajpurohit</p>
-      <img class="viz" src="charticulator/charticulator.svg" alt="Viz">
+      <p class="heading1">Iris Vizualisation</p>
+      <p>By Akshay Rajpurohit – InfoD 2019</p>
+      <p class="heading2">Abstract Vizualisation</p>
+      <img class="viz1" src="charticulator/iris-abstarct.svg" alt="Viz">
       <br>
-      <small>InfoD 2019</small>
+      <p class="heading2">Message Vizualisation</p>
+      <img class="viz2" src="charticulator/iris-line.svg" alt="Viz">
+      <br>
     </main>
   </body>
 </html>
