@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://d3js.org/d3.v5.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>D3 vs charticulator</title>
+  </head>
+  <body>
+    <main>
+      <h1>Iris Visualization</h1>
+      <p>Akshay Rajpurohit</p>
+      <h2>D3 viz</h2>
+      <p>Coming soon!</p>
+      <div class="vis-manual">
+        <div class="box">10</div>
+        <div class="box">20</div>
+        <div class="box">30</div>
+        <div class="box">40</div>
+        <div class="box">50</div>
+      </div>
+
+      <div class="vis-d3">
+      </div>
+
+      <div class="vis-iris">
+      </div>
+
+
+      <script type="text/javascript">
+
+        var data = [
+          {"sepalWidth": 15, "sepalLength": 10, "species" : "A"},
+          {"sepalWidth": 10, "sepalLength": 12, "species" : "A"},
+          {"sepalWidth": 13, "sepalLength": 16, "species" : "B"},
+          {"sepalWidth": 20, "sepalLength": 15, "species" : "B"},
+          {"sepalWidth": 12, "sepalLength": 8, "species" : "B"},
+        ]
+
+        //select the div in which you want to create
+        d3.select(".vis-d3")
+          //select the div within the space to which data will be bound
+          .selectAll("div")
+          //select the data
+          .data(data)
+          // enters the group
+          .enter()
+          // creates new divs based on datum count
+          .append("div")
+          .text(d => d.species)
+          .style("color", "white")
+          .style("background-color", function(d){return d.species == "A" ? "black" : "red"})
+          .style("width",d => d.sepalWidth*2  + "px")
+          .style("height",d => d.sepalLength*2 + "px")
+          .style("margin","2px")
+
+          async function vizIris(){
+            iris = await d3.csv("iris.csv", d3.autoType)
+
+            d3.select(".vis-iris")
+              .selectAll("div")
+              .data(iris)
+            .enter()
+              .append("rect")
+              .style("background-color", "red")
+              .style("width",d => d.PetalLengthCm*5  + "px")
+              .style("height",d => d.PetalWidthCm*10 + "px")
+              .style("margin","2px")
+              .style("background-color", function(d){return d.Species == "Iris-setosa" ? "green" : "yellow"})
+          }
+
+          vizIris();
+
+      </script>
+    </main>
+  </body>
+</html>
